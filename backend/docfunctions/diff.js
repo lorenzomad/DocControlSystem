@@ -3,10 +3,11 @@ const Diff = require('diff');
 
 
 export default diff = (lhs, rhs) => {
-    
+    // creates the diff of the left side to the right side sentence
     const diff = Diff.diffWords(one, other);
     console.log(diff)
     
+    //print the result (for debugging)
     diff.forEach((part) => {
       // green for additions, red for deletions
       // grey for common parts
