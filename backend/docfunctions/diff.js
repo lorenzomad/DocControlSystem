@@ -2,7 +2,7 @@ require('colors');
 const Diff = require('diff');
 
 
-export default diff = (lhs, rhs) => {
+const diff = (lhs, rhs) => {
     // creates the diff of the left side to the right side sentence
     const diff = Diff.diffWords(one, other);
     console.log(diff)
@@ -19,3 +19,5 @@ export default diff = (lhs, rhs) => {
     console.log();
     return diff;
 }
+
+export default diff
