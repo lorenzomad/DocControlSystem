@@ -4,8 +4,7 @@ const Diff = require('diff');
 
 const diff = (lhs, rhs) => {
     // creates the diff of the left side to the right side sentence
-    const diff = Diff.diffWords(one, other);
-    console.log(diff)
+    const diff = Diff.diffWords(lhs, rhs);
     
     //print the result (for debugging)
     diff.forEach((part) => {
@@ -20,4 +19,6 @@ const diff = (lhs, rhs) => {
     return diff;
 }
 
-export default diff
+
+module.exports = diff
+

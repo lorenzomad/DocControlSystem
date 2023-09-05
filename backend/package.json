@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "any-text": "^1.2.0",
     "color": "^4.2.3",
     "colors": "^1.4.0",
     "cookie-parser": "~1.4.4",

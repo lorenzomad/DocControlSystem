@@ -1,11 +1,9 @@
 let reader = require('any-text');
 
-const extractText = (filepath) => {
+const extractText = async (filepath) => {
     // extracts the text from the provided document.
-    let text = []
-    reader.getText(filepath).then(function (data) {
-        console.log(data);
-        text.push(data)
-      });
-    return text
+    
+    let data = await reader.getText(filepath)
+    return data
 }
+module.exports = extractText
