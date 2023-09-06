@@ -4,20 +4,48 @@ let extractText = require('../docfunctions/extractText.js')
 let diff = require('../docfunctions/diff.js')
 
 
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, '/tmp')
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+    cb(null, file.fieldname + '-' + uniqueSuffix+ '.docx')
+  }
+})
+
+const upload = multer({ storage: storage })
+
+
 const generateDiff = async (file1, file2) => {
   text1 = await extractText(file1);
   text2 = await extractText(file2);
 
-  textDiff = diff(text1, text2)
-  
+  return diff(text1, text2)
 }
 
-generateDiff('test_docs/trial_document.docx', 'test_docs/trial_document_2.docx')
+
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
+});
+
+
+
+/* POST files for diff request. */
+router.post('/diff', upload.array('files[]', 2), function(req, res, next) {
+  console.log(req.files)
+  const document1 = req.files[0].path
+  console.log(document1)  
+  const document2 = req.files[1].path
+
+  const documentDiff = generateDiff(document1, document2)
+
+  res.json({ diff: documentDiff});
 });
 
 module.exports = router;

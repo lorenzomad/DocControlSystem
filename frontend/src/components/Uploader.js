@@ -1,25 +1,22 @@
 import {useState} from 'react'
 
-const Uploader = ({title, uploadDocument}) => {
+const Uploader = ({title, uploadFunction}) => {
 
     const [document, setDocument] = useState()
 
     const onUpload = event => {
         setDocument(event.target.files[0])
+        console.log(document)
     } 
 
-    const onSubmit = e => {
-        e.preventDefault()
-        console.log(document.name)
-
-    }
+    
 
 
     return (
         <div>
             <p>{title}</p>
             <input type='file' onChange={onUpload}/>
-            <button onClick={onSubmit}>Upload</button>
+            <button onClick= {() => uploadFunction(document)}>Upload</button>
 
         </div>
     )
