@@ -40,12 +40,15 @@ router.get('/', function(req, res, next) {
 router.post('/diff', upload.array('files[]', 2), function(req, res, next) {
   console.log(req.files)
   const document1 = req.files[0].path
-  console.log(document1)  
   const document2 = req.files[1].path
 
   const documentDiff = generateDiff(document1, document2)
 
-  res.json({ diff: documentDiff});
+  
+  documentDiff.then(data => {
+    console.log(data);
+    res.json( {diff: data});
+  })
 });
 
 module.exports = router;

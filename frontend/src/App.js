@@ -34,8 +34,16 @@ function App() {
     )
     const documentDiff =  await response.json()
     
-    console.log(documentDiff)
-    setDiff(documentDiff)
+    console.log(documentDiff.diff)
+    const diffvisualizer = documentDiff.diff.map(part => 
+      // green for additions, red for deletions
+      // grey for common parts
+      part.added ? <span className='added'> {part.value} </span> :
+        part.removed ? <span className='removed'> {part.value} </span> : 
+          <span> {part.value}</span>
+    )
+
+    setDiff(diffvisualizer)
 
   }
 
@@ -49,7 +57,7 @@ function App() {
 
       <button onClick={() => generateDiff(document1, document2)}> Generate diff</button>
 
-      { diff !== null ? <p>{diff.diff}</p> : ''}
+      { diff !== null ? <div>{diff}</div> : ''}
       
     </div>
   );
