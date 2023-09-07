@@ -3,54 +3,26 @@ var express = require('express');
 var router = express.Router();
 var db = require('../db/conn.js')
 
-router.get("/", async (req,res) => {
-    
-})
+let documentController = require('../controllers/documentController.js')
+let documentInstanceController = require('../controllers/documentInstanceController.js')
 
-router.get("/:id", async (req,res) => {
-    let collection = await db.collection("documents")
-    let query = {_id: new ObjectId(req.params.id)}
-    let results = await collection.findOne(query)
+router.get("/", documentController.documents_list)
 
-    if(!results) { res.send("Not found").status(404)}
-    else {res.send(results).status(200)}
-    
-})
+router.get("/:id", documentController.document_detail)
 
-router.post("/", async (req,res) => {
-    let newDocument = { 
-        ID : req.body.ID,
-        title: req.body.title,
-    }
-    let collection = await db.collection("documents")
-    let results = await collection.insertOne(newDocument)
-    res.send(results).status(204)
-})
+router.get('/create', documentController.document_create_get)
 
-router.patch("/:id", async (req,res) => {
-    const query = { _id: new ObjectId(req.params.id)}
-    const updates = {
-        $set: {
-            ID: req.body.ID,
-            title: req.body.title,
-        }
-    }
+router.post('/create', documentController.document_create_post)
 
-    let collection = await db.collection("documents")
-    let results = await collection.updateOne(query, updates)
+router.get('/:id/delete', documentController.document_delete_get)
 
-    res.send(results).status(200)
-})
+router.post('/:id/delete', documentController.document_delete_post)
+
+router.get('/:id/update', documentController.document_update_get)
+
+router.post('/:id/update', documentController.document_update_post)
 
 
-router.delete("/:id", async (req,res) => {
-    const query = { _id: new ObjectId(req.params.id)}
-
-    let collection = await db.collection("documents")
-    let results = await collection.deleteOne(query)
-
-    res.send(results).status(200)
-})
 
 
 module.exports = router;
