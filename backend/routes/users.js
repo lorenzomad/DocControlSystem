@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
+const peopleController = require('../controllers/peopleController')
+
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get('/', peopleController.people_list});
+
+router.get('/create', peopleController.person_create_get)
 
 module.exports = router;
