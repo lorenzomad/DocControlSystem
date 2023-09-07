@@ -1,4 +1,3 @@
-import dotenv from "dotenv"
+let dotenv = require("dotenv")
 
 dotenv.config()
-
