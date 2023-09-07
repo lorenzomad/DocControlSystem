@@ -1,10 +1,8 @@
 const mongoose = require('mongoose')
 var express = require('express');
 var router = express.Router();
-var db = require('../db/conn.js')
 
 let documentController = require('../controllers/documentController.js')
-let documentInstanceController = require('../controllers/documentInstanceController.js')
 
 router.get("/", documentController.documents_list)
 
