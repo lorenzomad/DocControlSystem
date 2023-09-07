@@ -45,3 +45,22 @@
 .removed {
   text-decoration: line-through;
 }
+
+.upload {
+  display: flex;
+  margin: auto;
+  align-content: center;
+}
+
+.upload > div {
+  flex: 1;
+}
+
+.document {
+  display: flex;
+  flex-direction: column;
+}
+
+.document > * {
+  flex:1
+}

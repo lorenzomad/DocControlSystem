@@ -50,9 +50,15 @@ function App() {
 
   return (
     <div>
-      <div className='upload-container'>
-        <Uploader title='File 1' uploadFunction = {uploadDocument1}/>
-        <Uploader title='File 2' uploadFunction = {uploadDocument2}/>
+      <div className='upload'>
+        <div className='document'>
+          <Uploader title='File 1' uploadFunction = {uploadDocument1}/>
+          {document1 ? <p>{document1.name}</p> : ''}
+        </div>
+        <div className='document'>
+          <Uploader title='File 2' uploadFunction = {uploadDocument2}/>
+          {document2 ? <p>{document2.name}</p> : ''}
+        </div>
       </div>
 
       <button onClick={() => generateDiff(document1, document2)}> Generate diff</button>
