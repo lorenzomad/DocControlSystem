@@ -4,9 +4,7 @@ var router = express.Router();
 var db = require('../db/conn.js')
 
 router.get("/", async (req,res) => {
-    let collection = await db.collection("documents")
-    let results = await collection.find({}).toArray()
-    res.send(results).status(200)
+    
 })
 
 router.get("/:id", async (req,res) => {
