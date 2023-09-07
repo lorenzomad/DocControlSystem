@@ -20,7 +20,7 @@ function App() {
     setDocument2(document)
   }
 
-  const generateDiff = async (doc1, doc2) => {
+  const getDiff = async (doc1, doc2) => {
 
     const fd = new formData()
 
@@ -33,10 +33,11 @@ function App() {
       {method:'POST', body:fd, headers: {...fd.getHeaders}}
     )
     const documentDiff =  await response.json()
-    
-    const diffvisualizer = documentDiff.diff.map(part => 
-      // green for additions, red for deletions
-      // grey for common parts
+    return documentDiff.diff
+  }
+
+  const mapDiff = (diff) => {
+    const diffvisualizer = diff.map(part => 
       part.added ? <span className='added'> {part.value} </span> :
         part.removed ? <span className='removed'> {part.value} </span> : 
           <span> {part.value}</span>
@@ -45,7 +46,6 @@ function App() {
     setDiff(diffvisualizer)
 
   }
-
 
   return (
     <div>
@@ -60,7 +60,10 @@ function App() {
         </div>
       </div>
 
-      <button onClick={() => generateDiff(document1, document2)}> Generate diff</button>
+      <button onClick={ async () => {
+        const diff = await getDiff(document1, document2);
+        mapDiff(diff);
+      }}> Generate diff</button>
 
       { diff !== null ? <div>{diff}</div> : ''}
       
