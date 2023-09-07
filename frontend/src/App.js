@@ -34,7 +34,6 @@ function App() {
     )
     const documentDiff =  await response.json()
     
-    console.log(documentDiff.diff)
     const diffvisualizer = documentDiff.diff.map(part => 
       // green for additions, red for deletions
       // grey for common parts
