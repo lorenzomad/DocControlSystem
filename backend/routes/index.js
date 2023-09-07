@@ -38,7 +38,6 @@ router.get('/', function(req, res, next) {
 
 /* POST files for diff request. */
 router.post('/diff', upload.array('files[]', 2), function(req, res, next) {
-  console.log(req.files)
   const document1 = req.files[0].path
   const document2 = req.files[1].path
 
@@ -46,7 +45,6 @@ router.post('/diff', upload.array('files[]', 2), function(req, res, next) {
 
   
   documentDiff.then(data => {
-    console.log(data);
     res.json( {diff: data});
   })
 });
