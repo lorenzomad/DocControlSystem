@@ -1,7 +1,7 @@
 const People = require('../models/peopleModel')
 const asyncHandler = require('express-async-handler')
-const {body, validationResult } = require(' express-validator')
-const { json } = require('express')
+const {body, validationResult } = require('express-validator')
+
 
 //all people details
 exports.people_list = asyncHandler(async (req,res,next) => {

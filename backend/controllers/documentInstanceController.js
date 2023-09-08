@@ -2,7 +2,7 @@ const DocumentInstance = require('../models/documentInstanceModel')
 const asyncHandler = require('express-async-handler')
 
 //all documentInstances details
-exports.documnetInstance_list = asyncHandler(async (req,res,next) => {
+exports.documentInstance_list = asyncHandler(async (req,res,next) => {
     res.send("TBD")
 })
 

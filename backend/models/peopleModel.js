@@ -13,4 +13,4 @@ peopleSchema.virtual("url").get( function () {
 })
 
 
-mongoose.model("People", peopleSchema)
+module.exports = mongoose.model("People", peopleSchema)
