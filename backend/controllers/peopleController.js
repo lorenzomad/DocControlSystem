@@ -1,5 +1,6 @@
 const People = require('../models/peopleModel')
 const asyncHandler = require('express-async-handler')
+const {body, validationResult } = require(' express-validator')
 
 //all people details
 exports.people_list = asyncHandler(async (req,res,next) => {
@@ -13,6 +14,8 @@ exports.person_detail = asyncHandler(async(req,res,next ) => {
 
 // create person post
 exports.person_create_post = asyncHandler( async (req,res,next) => {
+    body("name")
+    
     res.send("TBD")
 })
 
