@@ -11,22 +11,10 @@ exports.person_detail = asyncHandler(async(req,res,next ) => {
     res.send("TBD")
 })
 
-//create person get
-exports.person_create_get = asyncHandler( async (req,res,next) => {
-    res.send("TBD")
-})
-
 // create person post
 exports.person_create_post = asyncHandler( async (req,res,next) => {
     res.send("TBD")
 })
-
-//delete person get 
-
-exports.person_delete_get = asyncHandler( async (req,res,next) => {
-    res.send("TBD")
-})
-
 
 //delete person post 
 exports.person_delete_post = asyncHandler( async (req,res,next) => {
@@ -34,10 +22,6 @@ exports.person_delete_post = asyncHandler( async (req,res,next) => {
 })
 
 
-// update get
-exports.person_update_get = asyncHandler( async (req,res,next) => {
-    res.send("TBD")
-})
 // update post 
 exports.person_update_post = asyncHandler( async (req,res,next) => {
     res.send("TBD")
