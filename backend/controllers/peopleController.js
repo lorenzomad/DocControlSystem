@@ -1,14 +1,21 @@
 const People = require('../models/peopleModel')
 const asyncHandler = require('express-async-handler')
 const {body, validationResult } = require(' express-validator')
+const { json } = require('express')
 
 //all people details
 exports.people_list = asyncHandler(async (req,res,next) => {
-    res.send("TBD")
+    const allPeople = await People.find({}, "firstName lastName role")
+    .sort({firstName: 1})
+    .exec()
+
+    console.log(allPeople)
+    res.json(allPeople)
 })
 
 //specific person detail
 exports.person_detail = asyncHandler(async(req,res,next ) => {
+    People.findOne({})
     res.send("TBD")
 })
 
