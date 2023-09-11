@@ -48,7 +48,7 @@ const CreateUserForm = () => {
             }
         )
 
-        content = await response.json()
+        const content = await response.json()
         console.log(content)
 
     }
@@ -65,7 +65,7 @@ const CreateUserForm = () => {
             <input type="text" name="role" onChange={e => handleRoleChange(e.target.value)}/>
             <br />
             <button onClick={e => {
-                e.preventDefault(),
+                e.preventDefault()
                 submitAction(person)
                 }}>Create person</button> 
 

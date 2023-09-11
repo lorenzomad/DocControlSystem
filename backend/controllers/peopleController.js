@@ -22,20 +22,20 @@ exports.person_detail = asyncHandler(async(req,res,next ) => {
 // create person post
 exports.person_create_post = [
     // data validation
-    body("firstName"),
-    // .trim()
-    // .isLength({min:3})
-    // .escape(),
+    body("firstName")
+    .trim()
+    .isLength({min:3})
+    .escape(),
 
-    body("LastName"),
-    // .trim()
-    // .isLength({min:3})
-    // .escape(),
+    body("lastName")
+    .trim()
+    .isLength({min:3})
+    .escape(),
 
-    body("role"),
-    // .trim()
-    // .isLength({min:3})
-    // .escape(),
+    body("role")
+    .trim()
+    .isLength({min:3})
+    .escape(),
 
     // handle the request
     asyncHandler( async (req,res,next) => {
