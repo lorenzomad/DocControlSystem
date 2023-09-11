@@ -1,5 +1,6 @@
 import React from "react";
 import DiffPage from "./components/DiffPage";
+import Documents from './components/Documents'
 import Users from "./components/Users"
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Homepage from "./components/Homepage";
@@ -12,6 +13,7 @@ const RouteSwitch = () => {
                 <Header/>
                 <Routes>                    
                     <Route path="/" element={<Homepage/>} />
+                    <Route path="/documents" element={<Documents/>} />
                     <Route path="/users" element={<Users />} />
                     <Route path="/diff" element={<DiffPage />} />
                 </Routes>

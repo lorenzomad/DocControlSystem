@@ -5,8 +5,8 @@ const Header = () => {
         <ul className="navigation">
             <li> <Link to="/"> Homepage </Link> </li>
             <li> <Link to="/users"> Users </Link> </li>
-            {/* <li> <Link to="/documents"> Documents</Link> </li>
-            <li> <Link to="/documentInstances"> Document Instances</Link> </li> */}
+            <li> <Link to="/documents"> Documents</Link> </li>
+            {/* <li> <Link to="/documentInstances"> Document Instances</Link> </li> */}
             <li> <Link to="/diff"> Create Diff </Link> </li>
         </ul>
     )
