@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-const backend_URL = 'https://miniature-garbanzo-rqgrxqrvpvjcpqp-4000.app.github.dev/'
+const backend_URL = process.env.REACT_APP_BACKEND_URL
 
 const CreateUserForm = () => {
 
