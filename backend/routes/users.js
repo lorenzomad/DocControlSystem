@@ -6,7 +6,6 @@ const peopleController = require('../controllers/peopleController')
 /* GET users listing. */
 router.get('/', peopleController.people_list);
 
-
 router.get('/:id', peopleController.person_detail);
 
 router.post('/create', peopleController.person_create_post)

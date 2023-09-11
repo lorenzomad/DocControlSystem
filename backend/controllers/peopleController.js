@@ -22,21 +22,25 @@ exports.person_detail = asyncHandler(async(req,res,next ) => {
 // create person post
 exports.person_create_post = [
     // data validation
-    body("firstName")
-    .trim()
-    .isLength({min:3})
-    .escape(),
-    body("LastName")
-    .trim()
-    .isLength({min:3})
-    .escape(),
-    body("role")
-    .trim()
-    .isLength({min:3})
-    .escape(),
+    body("firstName"),
+    // .trim()
+    // .isLength({min:3})
+    // .escape(),
+
+    body("LastName"),
+    // .trim()
+    // .isLength({min:3})
+    // .escape(),
+
+    body("role"),
+    // .trim()
+    // .isLength({min:3})
+    // .escape(),
 
     // handle the request
     asyncHandler( async (req,res,next) => {
+
+        console.log(req.body)
         const errors = validationResult(req)
         const person = new People({
             firstName: req.body.firstName,
@@ -57,11 +61,11 @@ exports.person_create_post = [
 
             if (personExists) {
                 // the person already exists, redirect
-                res.redirect(personExists.url)
+                // res.redirect(personExists.url)
             } else {
                 // save the person
                 await person.save()
-                res.redirect(person.url)
+                // res.redirect(person.url)
             }
         }
 })
