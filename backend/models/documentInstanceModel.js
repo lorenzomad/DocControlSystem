@@ -14,7 +14,7 @@ const documentInstanceSchema = new Schema({
 })
 
 documentInstanceSchema.virtual("url").get( function () {
-    return `documentInstances/${this.revision}`
+    return `documentInstances/${this.documentID}/${this.revision}`
 })
 
 module.exports = mongoose.model("DocumentInstance", documentInstanceSchema)
