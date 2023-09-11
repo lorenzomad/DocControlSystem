@@ -10,11 +10,10 @@ router.get('/:id', peopleController.person_detail);
 
 router.post('/create', peopleController.person_create_post)
 
+router.delete('/', peopleController.person_delete_post)
 
-router.post('/:id/delete', peopleController.person_delete_post)
 
-
-router.post('/:id/update', peopleController.person_update_post)
+router.put('/', peopleController.person_update_post)
 
 
 module.exports = router;

@@ -50,7 +50,7 @@ exports.person_create_post = [
 
         if(!errors.isEmpty()) {
             //data contains vlaidation errors
-            res.send("validation of the input failed");
+            res.json("validation of the input failed");
             return 
         } else {
             //data validation passed
@@ -73,7 +73,18 @@ exports.person_create_post = [
 
 //delete person post 
 exports.person_delete_post = asyncHandler( async (req,res,next) => {
-    res.send("TBD")
+    const person = await People.findOneAndRemove({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName
+    })
+
+    if (person === null) {
+        res.json("No person found")
+    } else {
+        res.json(`the person ${person.firstName}, ${person.lastName} was eliminated`)
+    }
+
+
 })
 
 
