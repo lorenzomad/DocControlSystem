@@ -10,9 +10,9 @@ router.get("/:id", documentController.document_detail)
 
 router.post('/create', documentController.document_create_post)
 
-router.post('/:id/delete', documentController.document_delete_post)
+router.delete('/', documentController.document_delete_post)
 
-router.post('/:id/update', documentController.document_update_post)
+router.put('/', documentController.document_update_post)
 
 
 
