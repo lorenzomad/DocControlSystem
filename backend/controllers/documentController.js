@@ -13,7 +13,11 @@ exports.documents_list = asyncHandler(async (req,res,next) => {
 
 //specific document detail
 exports.document_detail = asyncHandler(async(req,res,next ) => {
-    res.send("TBD")
+    const document = Document.findOne({
+        title: req.body.title,
+    })
+
+    res.json(document)
 })
 
 

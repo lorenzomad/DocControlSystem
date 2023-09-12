@@ -15,8 +15,11 @@ exports.people_list = asyncHandler(async (req,res,next) => {
 
 //specific person detail
 exports.person_detail = asyncHandler(async(req,res,next ) => {
-    People.findOne({})
-    res.send("TBD")
+    const person = People.findOne({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName
+    })
+    res.json(person)
 })
 
 // create person post
