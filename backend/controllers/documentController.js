@@ -13,7 +13,7 @@ exports.documents_list = asyncHandler(async (req,res,next) => {
 
 //specific document detail
 exports.document_detail = asyncHandler(async(req,res,next ) => {
-    const document = Document.findOne({
+    const document = await Document.findOne({
         title: req.body.title,
     })
 
