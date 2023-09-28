@@ -1,13 +1,13 @@
-import './App.css';
-import Uploader from './components/Uploader.js'
 import { useState } from 'react';
+import Uploader from './Uploader.js'
+
 
 
 const formData = require('form-data')
 const backend_URL = 'https://miniature-garbanzo-rqgrxqrvpvjcpqp-4000.app.github.dev/'
 
 
-function App() {
+function DiffPage() {
   const [document1, setDocument1] = useState()
   const [document2, setDocument2] = useState()
   const [diff, setDiff] = useState(null)
@@ -71,4 +71,4 @@ function App() {
   );
 }
 
-export default App;
+export default DiffPage
